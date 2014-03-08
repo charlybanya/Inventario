@@ -11,6 +11,18 @@ function getRoles() {
     $mysqli->close();
 }
 
+function getTypes() {
+    $mysqli = new mysqli("localhost", "root", "", "inventario");
+    $query = "select *  from type";
+    $exec = $mysqli->query($query);
+    $resultado = $exec->fetch_all();
+    foreach ($resultado as $key => $value) {
+        echo '<option value="'.$value[0].'">'.$value[0].' - '.$value[1].'</option>';
+    }
+    echo '<option value="newType" >Añadir Nuevo Tipo</option>';
+    $mysqli->close();
+}
+
 function createUser($userName, $password, $idRole) {
     $mysqli = new mysqli("localhost", "root", "", "inventario");
     $query = "insert into user values ('".$userName."', '".$password."', '".$idRole."')";
