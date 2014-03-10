@@ -1,8 +1,9 @@
 <?php
+session_start();
 include './includes/bdOperations.php';
-/* if (!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])){
   header('Location:index.php');
-  }else{ */
+  }else{
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,4 +28,4 @@ include './includes/bdOperations.php';
 
     </body>
 </html>
-
+<?php } ?>

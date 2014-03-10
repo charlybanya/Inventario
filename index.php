@@ -1,8 +1,7 @@
 <?php
-if (!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,16 +14,19 @@ if (!isset($_SESSION)){
     </head>
     <body>
         <?php
-        if (isset($_SESSION['user'])){
-            
-        }else{
+        if (isset($_SESSION['user'])) {
+            echo '<h1>Bienvenido: '.$_SESSION['user'].'</h1><br />';
         ?>
-        <form id="Form" action="login.php" method="POST">
-            <label>Usuario:</label><input name="user" autofocus="true" required="true" type="text" /><br />
-            <label>Contraseña:</label><input name="pass" required="true" type="password" /><br />
-            <input type="submit" name="login" value="Iniciar Sesión" />
-        </form>
-        <?php
+        <a href="newRegister.php">Nuevo Registro</a><br />
+        <a href="newUser.php">Nuevo Usuario</a><br />
+        <a href="reviewInventory.php">Consultas</a><br />
+        <?php } else { ?>
+            <form id="login" action="login.php" method="POST">
+                <label>Usuario:</label><input name="user" autofocus="true" required="true" type="text" /><br />
+                <label>Contraseña:</label><input name="pass" required="true" type="password" /><br />
+                <input type="submit" name="login" value="Iniciar Sesión" />
+            </form>
+            <?php
         }
         ?>
     </body>
